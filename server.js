@@ -11,9 +11,7 @@ app.use(cors());
 app.use(express.urlencoded({extended: true}))
 app.use(express.json());
 
-app.get("/", (req, res) => {
-    res.send("Hello World");
-  });
+app.use('/', routes);
 
 app.use((req, res) => {
     res.status(404).json({message: 'Not a proper route!'})
