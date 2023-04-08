@@ -32,7 +32,7 @@ const signIn = (req, res) => {
 }
 
 const signOut = (req, res) => {
-    db.User.find({})
+    db.User.findOne({username: req.body.username})
     .then(() => {
         req.session.destroy()
     })
