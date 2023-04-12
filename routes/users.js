@@ -2,12 +2,12 @@ const router = require('express').Router()
 const { users } = require('../controllers')
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const keys = require("../../config/keys");
+const keys = require("../config/keys");
 // Load input validation
-const validateRegisterInput = require("../../validation/register");
-const validateLoginInput = require("../../validation/login");
+const validateRegisterInput = require("../validation/register");
+const validateLoginInput = require("../validation/login");
 // Load User model
-const User = require("../../models/User");
+const User = require("../models/users");
 
 router.post("/login", (req, res) => {
     // Form validation
