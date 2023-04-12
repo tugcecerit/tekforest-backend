@@ -4,6 +4,15 @@ import { Route, Routes } from 'react-router-dom'
 const bcrypt = require('bcrypt')
 const db = require('../models')
 
+// req.session.user = userInfo
+// const requireAuth = (req, res, next) => {
+//     const {user} = req.session;
+//     if(!user) {
+//         res.status(401).json({message: 'Unauthorized'})
+//     }
+//     next();
+// }
+
 const register = (req, res) => {
     const salt = bcrypt.genSaltSync(10);
     req.body.password = bcrypt.hashSync(req.body.password, salt);
