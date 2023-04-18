@@ -5,11 +5,11 @@ const jwt = require("jsonwebtoken");
 const keys = require("../config/keys");
 // Load input validation
 const validateRegisterInput = require("../validation/register");
-const validateLoginInput = require("../validation/login");
+const validateLoginInput = require("../validation/signin");
 // Load User model
 const User = require("../models/users");
 
-router.post("/login", (req, res) => {
+router.post("/signin", (req, res) => {
     // Form validation
   const { errors, isValid } = validateLoginInput(req.body);
   // Check validation
