@@ -17,7 +17,7 @@ app.use(
     })
   );
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors('*'));
 app.use(express.urlencoded({extended: true}))
 app.use(express.json());
 
@@ -32,12 +32,6 @@ app.use("/routes/users", users);
 app.use('/', routes);
 
 // app.use("/api/users", users);
-
-const MONGODB_URI = process.env.MONGODB_URI
-mongoose.set('strictQuery', true);
-mongoose.connect(MONGODB_URI, {
-    useNewUrlParser: false,
-});
 
 app.use((req, res) => {
     res.status(404).json({message: 'Not a proper route!'})
