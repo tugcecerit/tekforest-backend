@@ -33,6 +33,12 @@ app.use('/', routes);
 
 // app.use("/api/users", users);
 
+const MONGODB_URI = process.env.MONGODB_URI
+mongoose.set('strictQuery', true);
+mongoose.connect(MONGODB_URI, {
+    useNewUrlParser: false,
+});
+
 app.use((req, res) => {
     res.status(404).json({message: 'Not a proper route!'})
 })
