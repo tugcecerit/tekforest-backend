@@ -6,6 +6,7 @@ const db = require('../models')
 
 const register = (req, res) => {
     const salt = bcrypt.genSaltSync(10);
+    console.log(req)
     req.body.password = bcrypt.hashSync(req.body.password, salt);
     db.User.findOne({username: req.body.username}, (err, userExists))
         .then((createdUser)=> {

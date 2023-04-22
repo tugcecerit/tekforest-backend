@@ -58,6 +58,7 @@ router.post("/signin", (req, res) => {
   
 
 router.post("/register", (req, res) => {
+  console.log(req.params)
     // Form validation
   const { errors, isValid } = validateRegisterInput(req.body);
   // Check validation
