@@ -2,14 +2,14 @@ const router = require('express').Router()
 const { users } = require('../controllers')
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const keys = require("../config/keys");
+// const keys = require("../config/keys");
 // Load input validation
 const validateRegisterInput = require("../validation/register");
-const validateLoginInput = require("../validation/login");
+const validateLoginInput = require("../validation/signin");
 // Load User model
 const User = require("../models/users");
 
-router.post("/login", (req, res) => {
+router.post("/signin", (req, res) => {
     // Form validation
   const { errors, isValid } = validateLoginInput(req.body);
   // Check validation
@@ -31,7 +31,7 @@ router.post("/login", (req, res) => {
           // Create JWT Payload
           const payload = {
             id: user.id,
-            name: user.name
+            // name: user.name
           };
   // Sign token
           jwt.sign(
