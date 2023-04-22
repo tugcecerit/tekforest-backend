@@ -2,16 +2,17 @@ const mongoose = require('mongoose')
 
 const PlantSchema = new mongoose.Schema({
     commonName: String,
-    scientificName: String,
+    latinName: String,
+    otherNames: String,
+    defaultImage: String,
+    category: String,
+    climat: String,
+    family: String,
+    origin: String,
+    nickname: String,
     image: String,
     description: String,
-    category: String,
-    waterScale: Number,
-    sunScale: Number,
-    temperature: Number,
-    humidity: Number,
-    maintenance: String,
-    size: String
+    size: String,
 })
 
 const Plant = mongoose.model('Plant', PlantSchema);
